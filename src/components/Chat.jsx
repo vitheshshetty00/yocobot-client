@@ -41,6 +41,9 @@ const Chat = () => {
 						<div className="bg-gradient-to-r from-rose-400 to-orange-300 flex  m-5 shadow-lg border-white/40 border-4 text-white text-lg cursor-pointer items-center w-[250px] justify-center h-[120px] rounded-2xl">
 							<Link to="../summarizer">Web Summarizer</Link>
 						</div>
+						<div className="bg-gradient-to-r from-rose-400 to-orange-300 flex  m-5 shadow-lg border-white/40 border-4 text-white text-lg cursor-pointer items-center w-[250px] justify-center h-[120px] rounded-2xl">
+							<Link to="../sql-generator">SQL Generator</Link>
+						</div>
 					</div>
 				</>
 			</div>

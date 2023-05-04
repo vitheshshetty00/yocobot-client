@@ -49,6 +49,7 @@ const Summarizer = () => {
 			(item) => item.url === article.url
 		);
 
+
 		if (existingArticle) return setArticle(existingArticle);
 		mutation.mutate();
 	};
@@ -139,6 +140,7 @@ const Summarizer = () => {
 						) : mutation.isError ? (
 							<p className="font-inter font-bold text-black text-center">
 								Well, that wasnt supposed to happen...
+                
 								<br />
 								<span className="font-satoshi font-normal text-gray-700">
 									{mutation.error}
@@ -167,7 +169,10 @@ const Summarizer = () => {
 						<Link to="../image-generator">Image Generator</Link>
 					</div>
 					<div className="bg-gradient-to-r from-rose-400 to-orange-300 flex  m-5 shadow-lg border-white/40 border-4 text-white text-lg cursor-pointer items-center w-[250px] justify-center h-[120px] rounded-2xl">
-						<Link to="../summarizer">Web Summarizer</Link>
+						<Link to="../chat">Chat Bot</Link>
+					</div>
+          <div className="bg-gradient-to-r from-rose-400 to-orange-300 flex  m-5 shadow-lg border-white/40 border-4 text-white text-lg cursor-pointer items-center w-[250px] justify-center h-[120px] rounded-2xl">
+						<Link to="../sql-generator">SQL Generator</Link>
 					</div>
 				</div>
 			</>

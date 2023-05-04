@@ -1,6 +1,5 @@
 export const fetchSummary =  async(articleUrl) => {
     try {
-        // after depoloyment you should change the fetch URL below
         const response = await fetch('http://localhost:3080/summarize', { 
             method: 'POST',
             headers: {
