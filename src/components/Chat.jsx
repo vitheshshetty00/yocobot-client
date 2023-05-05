@@ -27,6 +27,9 @@ const Chat = () => {
 		<div className="app ">
 			<div className="flex ">
 				<div className=" relative flex flex-col flex-1 m-5 border-slate-300 border-[3px] rounded-md min-w-[900px] max-w-[900px] h-full min-h-[93vh] overflow-y-hidden max-h-[93vh] ">
+					<div>
+						
+					</div>
 					<div className="flex flex-col flex-1 h-full overflow-hidden w-full">
 						<ChatBody chat={chat} />
 					</div>

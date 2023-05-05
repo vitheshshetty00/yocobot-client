@@ -1,6 +1,6 @@
 export const fetchImage =  async(prompt) => {
     try {
-        const response = await fetch('http://localhost:3080/generateImage', { 
+        const response = await fetch('https://yocobot-server.vercel.app/generateImage', { 
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

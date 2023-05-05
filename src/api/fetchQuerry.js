@@ -1,7 +1,7 @@
 export const fetchQuerry =  async(queryDescription) => {
     try {
         
-        const response = await fetch('http://localhost:3080/querry', { 
+        const response = await fetch('https://yocobot-server.vercel.app/querry', { 
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

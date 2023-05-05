@@ -44,11 +44,11 @@ const QuerryGenerator = () => {
 
 				setQuerry(newQuerry);
 				setAllQuerries(updatedAllQuerries);
-				localStorage.setItem("articles", JSON.stringify(updatedAllQuerries));
+				localStorage.setItem("querries", JSON.stringify(updatedAllQuerries));
 			}
 		},
 	});
-    const handleCopy = (result) => {
+	const handleCopy = (result) => {
 		setCopied(result);
 		navigator.clipboard.writeText(result);
 		setTimeout(() => setCopied(false), 3000);
@@ -143,28 +143,74 @@ const QuerryGenerator = () => {
 								{mutation.error}
 							</span>
 						</p>
-					) : ( querry.res &&
-						<pre className="max-w-xl w-[560px] mx-auto">
-							<div className="bg-black rounded-md mx-auto mb-4 w-full max-w-xl">
-								<div className="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md">
-									<span>SQL</span>
-									<div
-										className="copy_btn"
-										onClick={() => handleCopy(querry.res)}
-									>
-										<img
-											src={copied === querry.res ? tick : copy}
-											alt={copied === querry.res ? "tick_icon" : "copy_icon"}
-											className="w-[40%] h-[40%] object-contain"
-										/>
+					) : (
+						querry.res && (
+							<pre className="max-w-xl w-[560px] mx-auto">
+								<div className="bg-black rounded-md mx-auto mb-4 w-full max-w-xl">
+									<div className="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+										<span>SQL</span>
+										<div
+											className="copy_btn"
+											onClick={() => handleCopy(querry.res)}
+										>
+											<img
+												src={copied === querry.res ? tick : copy}
+												alt={copied === querry.res ? "tick_icon" : "copy_icon"}
+												className="w-[40%] h-[40%] object-contain"
+											/>
+										</div>
+									</div>
+									<div className="p-1 w-full px-2">
+										<code className="break-words w-full whitespace-pre-wrap text-white">
+											{querry.res}
+										</code>
 									</div>
 								</div>
-								<div className="p-1 w-full px-2">
-									<code className="break-words w-full whitespace-pre-wrap text-white">{querry.res}</code>
-								</div>
-							</div>
-						</pre>
+							</pre>
+						)
 					)}
+				</div>
+				<div className="flex flex-1 w-[560px] justify-between mb-3 ">
+				<h2 className="font-satoshi  font-bold text-gray-600 text-xl">
+					History
+				</h2>
+				<div>
+					<button className="px-4 py-2  rounded-md bg-red-500"
+					onClick={()=>{setAllQuerries([]);
+					localStorage.clear()}
+					}>Clear</button>
+				</div>
+				</div>
+				<div className="flex flex-col gap-1 max-h-60 overflow-y-auto scrollbar-thumb-slate-400 scrollbar-thin scrollbar-track-gray-tranparent scrollbar-thumb-rounded-md">
+					{allQuerries.reverse().map((item, index) => (
+						<div key={`query-${index}`} className="link_card flex flex-col">
+							<p className="flex-1 font-satoshi text-blue-700 font-medium text-sm truncate">
+								{item.description}
+							</p>
+							<pre className="max-w-xl w-[560px] mx-auto">
+								<div className="bg-black rounded-md mx-auto mb-4 w-full max-w-xl">
+									<div className="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+										<span>SQL</span>
+										<div
+											className="copy_btn"
+											onClick={() => handleCopy(item.res)}
+										>
+											<img
+												src={copied === item.res ? tick : copy}
+												alt={copied === item.res ? "tick_icon" : "copy_icon"}
+												className="w-[40%] h-[40%] object-contain"
+											/>
+										</div>
+									</div>
+									<div className="p-1 w-full px-2">
+										<code className="break-words w-full whitespace-pre-wrap text-white">
+											{item.res}
+										</code>
+									</div>
+								</div>
+							</pre>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>

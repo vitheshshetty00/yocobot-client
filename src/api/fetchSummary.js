@@ -1,6 +1,6 @@
 export const fetchSummary =  async(articleUrl) => {
     try {
-        const response = await fetch('http://localhost:3080/summarize', { 
+        const response = await fetch('https://yocobot-server.vercel.app/summarize', { 
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
