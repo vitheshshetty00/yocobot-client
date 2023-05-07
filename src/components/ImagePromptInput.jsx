@@ -1,5 +1,6 @@
 
 
+
 // eslint-disable-next-line react/prop-types
 const ImagePromptInput = ({inputPrompt,setInputPrompt,generate}) => {
 	
@@ -9,6 +10,7 @@ const ImagePromptInput = ({inputPrompt,setInputPrompt,generate}) => {
 		generate({ sender: "user", message: inputPrompt });
 		
 	};
+	
 	const handleKeyDown = (e) => {
 		if (e.keyCode === 13 && e.shiftKey === false) {
 			handleSubmit(e);

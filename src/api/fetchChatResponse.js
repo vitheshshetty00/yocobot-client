@@ -4,6 +4,7 @@ export const fetchChatResponse =  async(chat) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
+                
             },
             body: JSON.stringify({
                 message: chat.map((message)=> message.message).join(" \n ")
